@@ -1,8 +1,11 @@
-
 export default function Home() {
   return (
-    <div>
-      <h1 className="text-center">Welcome to the boat</h1>
+    <div className="game-container">
+      <h1>Ride the Bus</h1>
+      <p>Classic drinking card game</p>
+      <a href="/game">
+        <button>Play Game</button>
+      </a>
     </div>
   );
 }
