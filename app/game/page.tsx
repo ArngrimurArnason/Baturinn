@@ -21,7 +21,7 @@ export default function Game() {
 
   function checkDeckEmpty() {
   if (deck.length === 0) {
-    alert("Finish your BEER! You are Game over.");
+    alert("Kláraðu BJÓRINN!");
     return true;
   }
   return false;
@@ -104,7 +104,7 @@ export default function Game() {
     }
     else {
       setTimeout(() => {
-        alert("Take a sip");
+        alert("Taktu sopa !");
         setCurrentRound(1);
         setRevealedCards([]);
       }, 1000);
@@ -134,7 +134,7 @@ export default function Game() {
     }
     else {
       setTimeout(() => {
-        alert("Take a sip");
+        alert("Taktu sopa !");
         setCurrentRound(1);
         setRevealedCards([]);
       }, 1000);
@@ -165,7 +165,7 @@ export default function Game() {
     }
     else {
       setTimeout(() => {
-        alert("Take a sip");
+        alert("Taktu sopa !");
         setCurrentRound(1);
         setRevealedCards([]);
       }, 1000);
@@ -183,14 +183,14 @@ export default function Game() {
     
     if(topCard.suit == suit){
       setTimeout(() => {
-        alert("YOU WON!")
+        alert("Þú kláraðir bátinn !")
         setCurrentRound(1);
         setRevealedCards([]);
       }, 1500);
     }
     else{
       setTimeout(() => {
-        alert("Take a sip")
+        alert("Taktu sopa !")
         setCurrentRound(1);
         setRevealedCards([]);
       }, 1500);
@@ -200,7 +200,7 @@ export default function Game() {
 
   return (
     <div className="game-container" >
-      <h1 className="header">Did you forget the cards at home?</h1>
+      <h1 className="header">Eitthvað?</h1>
       <div className="flex flex-col items-center gap-4">
       
       {/* Deck */}
@@ -226,31 +226,31 @@ export default function Game() {
       {/* Buttons */}
       {currentRound === 1 && (
         <div className="button-group">
-          <button onClick={() => handleGuess("red")}>Red</button>
-          <button onClick={() => handleGuess("black")}>Black</button>
+          <button onClick={() => handleGuess("red")}>Rauður</button>
+          <button onClick={() => handleGuess("black")}>Svartur</button>
         </div>
       )}
 
       {currentRound === 2 && (
         <div className="button-group">
-          <button onClick={() => handleHigherGuess()}>Higher</button>
-          <button onClick={() => handleLowerGuess()}>Lower</button>
+          <button onClick={() => handleHigherGuess()}>Hærra</button>
+          <button onClick={() => handleLowerGuess()}>Lægra</button>
         </div>
       )}
 
       {currentRound === 3 && (
         <div className="button-group">
-          <button onClick={() => handleInbetween()}>Inbetween</button>
-          <button onClick={() => handleOutside()}>Outside</button>
+          <button onClick={() => handleInbetween()}>Milli</button>
+          <button onClick={() => handleOutside()}>Utan</button>
         </div>
       )}
 
       {currentRound === 4 && (
         <div className="button-group">
-          <button onClick={() => suitGuess("C")}>Clubs</button>
-          <button onClick={() => suitGuess("S")}>Spade</button>
-          <button onClick={() => suitGuess("H")}>Heart</button>
-          <button onClick={() => suitGuess("D")}>Diamond</button>
+          <button onClick={() => suitGuess("C")}>Lauf</button>
+          <button onClick={() => suitGuess("S")}>Spaði</button>
+          <button onClick={() => suitGuess("H")}>Hjarta</button>
+          <button onClick={() => suitGuess("D")}>Tígull</button>
         </div>
       )}
       </div>
