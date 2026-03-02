@@ -9,6 +9,6 @@ export default function Card({ rank, suit, faceUp }){
         imagePath = `/cards/BACK.png`;
     }
     return(
-        <img src={imagePath} alt="card" style={{ width: '120px', height: '168px' }}/>
+        <img className="card" src={imagePath} alt="card"/>
     )
 }

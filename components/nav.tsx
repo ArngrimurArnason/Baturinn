@@ -7,9 +7,9 @@ export default function Navbar() {
       <div className="navlinks">
         <a href="/about"> Leiðbeiningar</a>
 
-        <a href="/app"> Appið</a>
+        <a href="/mobileapp"> Appið</a>
 
-        <a href="/hof"> Hetjurnar okkar</a>
+        <a href="/halloffame"> Hetjurnar okkar</a>
       </div>
       
     </nav> 

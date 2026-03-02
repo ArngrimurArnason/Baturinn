@@ -1,22 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google"; 
-import Navbar from "./components/nav";
-import Footer from "./components/footer";
+import Navbar from "../components/nav";
+import Footer from "../components/footer";
+import { Montserrat } from 'next/font/google'
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const montserrat = Montserrat({
+  weight: ['700', '800', '900'],
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
-  title: "Boat Drinking Game",
-  description: "Ready to get seasick?" ,
-  openGraph:{} // thumbnail mynd
+  title: "Baturinn",
+  description: "Tilbuinn að verða sjóveikur ?" ,
+  icons: {
+    // Favicon.com
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
@@ -26,9 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={montserrat.className}>
       <Navbar />
         {children}
       <Footer />
