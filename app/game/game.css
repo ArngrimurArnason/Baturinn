@@ -241,7 +241,7 @@ button:disabled {
 
   .header-game {
     position: absolute;
-    top: 180px;
+    top: 140px;
     left: 0;
     right: 0;
     text-align: center;
@@ -278,5 +278,12 @@ button:disabled {
 
   .wave-footer {
     bottom: 5px;
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 30px;
   }
 }
