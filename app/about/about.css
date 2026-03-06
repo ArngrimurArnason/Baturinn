@@ -49,4 +49,125 @@
   z-index: -1;
 }
 
+@media (max-width: 1024px) {
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+   .nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 16px 24px;
+  }
+
+  .navlinks {
+    position: static;
+    transform: none;
+    display: flex;
+    gap: 16px;
+  }
+
+  .nav a {
+    font-size: 22px;
+    padding: 6px 10px;
+  }
+
+  .about-container {
+    padding: 80px 40px 40px 40px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .about-container h1 {
+    white-space: nowrap; /* forces single line */
+    font-size: 60px;
+    text-align: center;
+  }
+
+
+  .step-text {
+    text-align: left; /* keep text left-aligned within its own block */
+  }
+
+  .step {
+    align-items: center;
+  }
+
+  .step-number {
+    font-size: 100px;
+    width: 60px;
+    min-width: 60px;
+    flex-shrink: 0;
+    text-align: center;
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .nav {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 8px 12px;
+    gap: 0px;
+    overflow: hidden;
+  }
+
+  .navlinks {
+    position: static;
+    transform: none;
+    flex-wrap: nowrap;
+    gap: 0px;
+  }
+
+  .nav a {
+    font-size: 15px;
+    padding: 4px 6px;
+    white-space: nowrap;
+  }
+
+  .nav > a:first-child {
+    margin-right: 12px;
+  }
+
+  .about-container {
+    padding: 80px 32px 40px 32px;
+  }
+
+  .about-container h1 {
+    white-space: nowrap; /* forces single line */
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .step-number {
+    font-size: 60px;
+    min-width: 50px;
+  }
+
+  .step-text {
+    font-size: 16px;
+  }
+
+  .step {
+    gap: 16px;
+  }
+
+  .steps {
+    gap: 24px;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}
 

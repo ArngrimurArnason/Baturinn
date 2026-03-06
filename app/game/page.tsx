@@ -41,21 +41,25 @@ export default function Game() {
 
   // save player do database using state
   async function savePlayer(){
-    let userIP = 'unknown';
-    try {
-      const ipResponse = await fetch('https://api.ipify.org?format=json');
-      const ipData = await ipResponse.json();
-      userIP = ipData.ip;
-    } catch (error) {
-      console.log('Could not get IP');
+
+    if (!playerName.trim()) {
+      setModalMessage("Sláðu inn nafn!");
+      setShowModal(true);
+      return;
     }
-    const { data, error } = await supabase
+
+    if (playerName.trim().length > 20) {
+      setModalMessage("Nafn má ekki vera lengra en 20 stafir");
+      setShowModal(true);
+      return;
+    }
+    
+    const { error } = await supabase
     .from('Leaderboard')
     .insert([
       { 
         name: playerName,
         rounds: failedAttempts,
-        ip_address: userIP,
         created_at: new Date().toISOString()
       }
     ])
@@ -394,12 +398,15 @@ export default function Game() {
             value={playerName}
             onChange={(e) => setPlayerName(e.target.value)}
             placeholder="Nafn"
+            maxLength={20}
           />
+          <small>{playerName.length}/20</small>
           
           <div className="button-group">
-            <button onClick={() => {
-              savePlayer();
-            }}>
+            <button 
+              onClick={savePlayer}
+              disabled={!playerName.trim()}
+            >
               Vista
             </button>
             

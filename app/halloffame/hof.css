@@ -67,3 +67,145 @@
   color: #666;
   text-align: right;
 }
+
+@media (max-width: 1024px) {
+  .nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 16px 24px;
+  }
+
+  .navlinks {
+    position: static;
+    transform: none;
+    display: flex;
+    gap: 16px;
+  }
+
+  .nav a {
+    font-size: 22px;
+    padding: 6px 10px;
+  }
+
+  .header {
+    font-size: 60px;
+    margin-top: 20px;
+  }
+
+  .leaderboard-entry {
+    grid-template-columns: 50px 1fr 100px 100px;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .rank {
+    font-size: 32px;
+  }
+
+  .name {
+    font-size: 22px;
+    margin-left: 10px;
+  }
+
+  .rounds {
+    font-size: 20px;
+  }
+
+  .time {
+    font-size: 16px;
+  }
+
+  .halloffame-container {
+    padding: 40px 20px;
+    align-items: center;
+  }
+
+  .leaderboard {
+    width: auto;
+    margin: 0 auto;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .nav {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 8px 12px;
+    gap: 0px;
+    overflow: hidden;
+  }
+
+  .navlinks {
+    position: static;
+    transform: none;
+    flex-wrap: nowrap;
+    gap: 0px;
+  }
+
+  .nav a {
+    font-size: 15px;
+    padding: 4px 6px;
+    white-space: nowrap;
+  }
+
+  .nav > a:first-child {
+    margin-right: 12px;
+  }
+
+  .halloffame-container {
+    padding: 80px 20px 40px 20px;
+    align-items: center;
+  }
+
+  .halloffame-container h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .leaderboard {
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .leaderboard-entry {
+    grid-template-columns: 40px 1fr 80px 80px;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .rank {
+    font-size: 24px;
+  }
+
+  .name {
+    font-size: 16px;
+    margin-left: 6px;
+  }
+
+  .rounds {
+    font-size: 14px;
+  }
+
+  .time {
+    font-size: 12px;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .text-content{
+    text-align: center;
+    font-size: 60px;
+  }
+}

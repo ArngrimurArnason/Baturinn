@@ -11,6 +11,10 @@ html, body {
   height: 100%;
 }
 
+[data-nextjs-dev-overlay] {
+  display: none !important;
+}
+
 .footer{
   background: var(--background);
   color: var(--foreground);
@@ -25,7 +29,7 @@ html, body {
   align-items: center;
   padding: 20px 40px;
   background: white;
-  position: relative; /* Add this */
+  position: relative;
 }
 
 .nav > a:first-child {
@@ -35,7 +39,7 @@ html, body {
 .navlinks {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%); /* Centers it perfectly */
+  transform: translateX(-50%);
   display: flex;
   gap: 24px;
   align-items: center;
@@ -53,60 +57,4 @@ html, body {
 
 .nav a:hover {
   color: #0099ff;
-}
-
-.header{
-  font-size: 130px;
-  font-weight: 900;
-  text-align: center;
-  margin: 0;
-}
-
-.subtitle{
-  font-size: 1.5rem;
-  text-align: center;
-  margin: 0;
-}
-
-.text-content {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  margin-top: -120px; /* Texti ofar */
-  margin-bottom: 185px; /* Bátur neðar */
-}
-
-.homepage{
-  min-height: 100vh;
-  background: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Getwaves.io */
-.homepage::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 320px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%230099ff' fill-opacity='1' d='M0,192L12.6,170.7C25.3,149,51,107,76,106.7C101.1,107,126,149,152,165.3C176.8,181,202,171,227,176C252.6,181,278,203,303,213.3C328.4,224,354,224,379,224C404.2,224,429,224,455,218.7C480,213,505,203,531,208C555.8,213,581,235,606,229.3C631.6,224,657,192,682,192C707.4,192,733,224,758,202.7C783.2,181,808,107,834,80C858.9,53,884,75,909,117.3C934.7,160,960,224,985,234.7C1010.5,245,1036,203,1061,192C1086.3,181,1112,203,1137,224C1162.1,245,1187,267,1213,234.7C1237.9,203,1263,117,1288,112C1313.7,107,1339,181,1364,192C1389.5,203,1415,149,1427,122.7L1440,96L1440,320L1427.4,320C1414.7,320,1389,320,1364,320C1338.9,320,1314,320,1288,320C1263.2,320,1238,320,1213,320C1187.4,320,1162,320,1137,320C1111.6,320,1086,320,1061,320C1035.8,320,1011,320,985,320C960,320,935,320,909,320C884.2,320,859,320,834,320C808.4,320,783,320,758,320C732.6,320,707,320,682,320C656.8,320,632,320,606,320C581.1,320,556,320,531,320C505.3,320,480,320,455,320C429.5,320,404,320,379,320C353.7,320,328,320,303,320C277.9,320,253,320,227,320C202.1,320,177,320,152,320C126.3,320,101,320,76,320C50.5,320,25,320,13,320L0,320Z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: bottom;
-  z-index: 0;
-}
-
-.homepage > * {
-  position: relative;
-  z-index: 1;
-}
-
-[data-nextjs-dev-overlay] {
-  display: none !important;
 }
