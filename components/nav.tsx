@@ -9,7 +9,7 @@ export default function Navbar() {
 
         <a href="/mobileapp"> Appið</a>
 
-        <a href="/halloffame"> Hetjurnar okkar</a>
+        <a href="/halloffame"> Hetjurnar</a>
       </div>
       
     </nav> 
