@@ -36,7 +36,7 @@ export default function HallofFame() {
       {loading ? (
         <p>Hleð...</p>
       ) : leaderboard.length === 0 ? (
-        <p>Engir hetjur ennþá!</p>
+        <p>Engar hetjur ennþá!</p>
       ) : (
         <div className="leaderboard">
           {leaderboard.map((entry, index) => (

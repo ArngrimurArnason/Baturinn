@@ -315,7 +315,7 @@ export default function Game() {
             <Card 
               rank={deck[0].rank} 
               suit={deck[0].suit} 
-              faceUp={true} 
+              faceUp={false} 
             />
           ) : (
             <Card faceUp={false} />
