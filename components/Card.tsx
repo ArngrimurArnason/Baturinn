@@ -1,6 +1,6 @@
 
 
-export default function Card({ rank, suit, faceUp }){
+export default function Card({ rank = '', suit = '', faceUp }){
     let imagePath;
   
     if (faceUp) {

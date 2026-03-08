@@ -39,6 +39,15 @@ export default function Game() {
     setDeck(newDeck);
   }, [])
 
+  useEffect(() => {
+    if (deck.length === 4) {
+      setTimeout(() => {
+        setModalMessage("Aðeins 4 kort eftir! 🃏");
+        setShowModal(true);
+    }, 1500);
+    }
+  }, [deck]);
+
   // save player do database using state
   async function savePlayer(){
 
@@ -71,6 +80,16 @@ export default function Game() {
       setModalMessage("Skráning tókst! 🎉");
       setShowModal(true);
     }
+  }
+
+  function resetGame() {
+    setFailedAttempts(0);
+    setDeck(generateDeck());
+    setCurrentRound(1);
+    setRevealedCards([]);
+    setShowModal(false);
+    setShowNameInput(false);
+    setPlayerName("");
   }
 
   // handle the empty deck
@@ -292,11 +311,15 @@ export default function Game() {
       <div className="card-container">
         <div className="cards-row">
           {/* Deck */}
-          <Card 
-            rank={deck[0]?.rank} 
-            suit={deck[0]?.suit} 
-            faceUp={false} 
-          />
+          {deck.length > 0 ? (
+            <Card 
+              rank={deck[0].rank} 
+              suit={deck[0].suit} 
+              faceUp={true} 
+            />
+          ) : (
+            <Card faceUp={false} />
+          )}
 
           {/* Revealed cards */}
           <div className="placeholder">
@@ -365,10 +388,7 @@ export default function Game() {
                   }}>
                     Skráðu þig á hetjulistann
                   </button>
-                  <button onClick={() => {
-                    setShowModal(false);
-                    setFailedAttempts(0);
-                  }}>
+                  <button onClick={resetGame}>
                     Byrja aftur
                   </button>
                 </div>
@@ -413,6 +433,7 @@ export default function Game() {
             <button onClick={() => {
               setShowNameInput(false);
               setPlayerName("");
+              resetGame();
             }}>
               Hætta við
             </button>
