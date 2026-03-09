@@ -39,15 +39,6 @@ export default function Game() {
     setDeck(newDeck);
   }, [])
 
-  useEffect(() => {
-    if (deck.length === 4) {
-      setTimeout(() => {
-        setModalMessage("Aðeins 4 kort eftir! 🃏");
-        setShowModal(true);
-    }, 1500);
-    }
-  }, [deck]);
-
   // save player do database using state
   async function savePlayer(){
 
@@ -103,6 +94,7 @@ export default function Game() {
 }
 
    function handleGuess(color) {
+    console.log(deck.length);
     if (checkDeckEmpty() || isAnimating) return;
   
     setIsAnimating(true); 
@@ -309,30 +301,30 @@ export default function Game() {
       <h1 className="header-game">Heppni eða tölfræðin ? </h1>
       
       <div className="card-container">
-        <div className="cards-row">
-          {/* Deck */}
-          {deck.length > 0 ? (
-            <Card 
-              rank={deck[0].rank} 
-              suit={deck[0].suit} 
-              faceUp={false} 
-            />
-          ) : (
-            <Card faceUp={false} />
-          )}
+      {/* Deck on top */}
+      <div className="cards-row">
+        {deck.length > 0 ? (
+          <Card 
+            rank={deck[0].rank} 
+            suit={deck[0].suit} 
+            faceUp={false} 
+          />
+        ) : (
+          <Card faceUp={false} />
+        )}
+      </div>
 
-          {/* Revealed cards */}
-          <div className="placeholder">
-            {revealedCards.map((card, index) => (
-              <Card 
-                key={card.id}
-                rank={card.rank}
-                suit={card.suit}
-                faceUp={card.faceUp}
-              />
-            ))}
-          </div>
-        </div>
+      {/* Revealed cards below */}
+      <div className="placeholder">
+        {revealedCards.map((card, index) => (
+          <Card 
+            key={card.id}
+            rank={card.rank}
+            suit={card.suit}
+            faceUp={card.faceUp}
+          />
+        ))}
+      </div>
 
 
       {/* Buttons */}
@@ -366,15 +358,10 @@ export default function Game() {
         </div>
       )}
       </div>
-
-      <div className="wave-footer">
-        <p>© 2026 AEÁ | Allur réttur áskilinn.</p>
-      </div>
     </div>
 
 
 
-      {/* First modal - win or lose */}
       {showModal && (
         <>
           {modalMessage.includes("vannst") ? (
@@ -392,6 +379,18 @@ export default function Game() {
                     Byrja aftur
                   </button>
                 </div>
+              </div>
+            </div>
+          ) : modalMessage.includes("Kláraðu") ? (
+            <div className="modal-overlay">
+              <div className="modal">
+                <p>{modalMessage}</p>
+                <button onClick={() => {
+                  setShowModal(false);
+                  resetGame();
+                }}>
+                  Byrja aftur
+                </button>
               </div>
             </div>
           ) : (

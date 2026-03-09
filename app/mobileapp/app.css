@@ -1,6 +1,12 @@
-.text-content{
-    margin-top: 50px;
+.text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 70vh;
 }
+
 .background-image {
   position: fixed;
   top: 0;
@@ -10,99 +16,63 @@
   background-image: url('/background.png');
   background-size: cover;
   background-position: center;
-  opacity: 0.10; /* Just the image, not content */
+  opacity: 0.10;
   z-index: -1;
-}
-.text-content{
-  text-align: center;
 }
 
 .header {
-  font-size: 140px;
-  margin-top: 50px;;
+  font-size: clamp(50px, 10vw, 140px);
+  margin-top: 0;
+  text-align: center;
+  color: black;
+  letter-spacing: -2px;
 }
 
-.footer{
-  margin-top: 500px;
+.explanation-text {
+  text-align: center;
+  margin: 2vh 2vw;
+  font-size: clamp(16px, 2vw, 24px);
+  color: #666;
 }
 
+.nav {
+  display: flex;
+  align-items: center;
+  padding: 2vh 2.5vw;
+  width: 100%;
+  box-sizing: border-box;
+  background: white;
+}
 
-@media (max-width: 1024px) {
-  .nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
-    padding: 16px 24px;
-  }
+.navlinks {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: clamp(4px, 1.5vw, 24px);
+  align-items: center;
+  margin-left: auto;
+}
 
-  .navlinks {
-    position: static;
-    transform: none;
-    display: flex;
-    gap: 16px;
-  }
+.nav a {
+  font-size: clamp(16px, 2vw, 28px);
+  padding: clamp(2px, 0.5vh, 8px) clamp(4px, 0.8vw, 16px);
+  white-space: nowrap;
+}
 
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1vh 2vw;
+  font-size: clamp(12px, 1.5vw, 16px);
+}
+
+@media (max-width: 480px) {
   .nav a {
-    font-size: 22px;
-    padding: 6px 10px;
+    font-size: 14px;
+    padding: 2px 4px;
   }
-
-  .header{
-    text-align: center;
-    font-size: 100px;
-  }
-
-  .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
-}
-
-@media (max-width: 767px) {
-  .nav {
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: nowrap;
-    padding: 8px 12px;
-    gap: 0px;
-    overflow: hidden;
-  }
-
   .navlinks {
-    position: static;
-    transform: none;
-    flex-wrap: nowrap;
-    gap: 0px;
+    gap: 4px;
   }
-
-  .nav a {
-    font-size: 15px;
-    padding: 4px 6px;
-    white-space: nowrap;
-  }
-
-  .nav > a:first-child {
-    margin-right: 12px;
-  }
-
-  .header{
-    text-align: center;
-    margin:30px;
-    font-size: 50px;
-    color:black;
-  }
-
-  .explanation-text{
-    text-align: center;
-    margin: 20px;
-  }
-
-  .text-content {
-    margin-top: 100px; 
-  }
-
 }

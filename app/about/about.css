@@ -1,28 +1,42 @@
 .about-container {
-  padding: 60px 40px;
+  padding: clamp(40px, 5vh, 60px) clamp(20px, 5vw, 80px) clamp(40px, 5vh, 60px);
   max-width: 800px;
   margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+.about-container h1 {
+  font-size: clamp(28px, 5vw, 60px);
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
+  width: 100%;
+}
 
 .steps {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  margin-top: 40px;
+  gap: clamp(24px, 3vh, 40px);
+  margin-top: clamp(24px, 3vh, 40px);
+  padding: 0 2vw;
 }
 
 .step {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: clamp(16px, 2.5vw, 30px);
 }
 
 .step-number {
-  font-size: 120px;
+  font-size: clamp(60px, 9vw, 120px);
   font-weight: 900;
   color: #0099ff;
   line-height: 1;
+  min-width: clamp(50px, 6vw, 80px);
+  text-align: center;
+  flex-shrink: 0;
   text-shadow: 2px 2px 8px white, -2px -2px 8px white;
 }
 
@@ -31,10 +45,13 @@
 }
 
 .step-text {
-  font-size: 24px;
+  font-size: clamp(16px, 1.8vw, 24px);
   margin: 0;
+  text-align: left;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
 }
-
 
 .background-image {
   position: fixed;
@@ -45,129 +62,50 @@
   background-image: url('/background.png');
   background-size: cover;
   background-position: center;
-  opacity: 0.10; /* Just the image, not content */
+  opacity: 0.10;
   z-index: -1;
 }
 
-@media (max-width: 1024px) {
-  .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
-
-   .nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
-    padding: 16px 24px;
-  }
-
-  .navlinks {
-    position: static;
-    transform: none;
-    display: flex;
-    gap: 16px;
-  }
-
-  .nav a {
-    font-size: 22px;
-    padding: 6px 10px;
-  }
-
-  .about-container {
-    padding: 80px 40px 40px 40px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .about-container h1 {
-    white-space: nowrap; /* forces single line */
-    font-size: 60px;
-    text-align: center;
-  }
-
-
-  .step-text {
-    text-align: left; /* keep text left-aligned within its own block */
-  }
-
-  .step {
-    align-items: center;
-  }
-
-  .step-number {
-    font-size: 100px;
-    width: 60px;
-    min-width: 60px;
-    flex-shrink: 0;
-    text-align: center;
-    padding-top: 0;
-  }
+.footer {
+  position: relative;
+  width: 100%;
+  visibility: visible;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1vh 2vw;
+  font-size: clamp(12px, 1.5vw, 16px);
 }
 
-@media (max-width: 767px) {
-
-  .nav {
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: nowrap;
-    padding: 8px 12px;
-    gap: 0px;
-    overflow: hidden;
-  }
-
-  .navlinks {
-    position: static;
-    transform: none;
-    flex-wrap: nowrap;
-    gap: 0px;
-  }
-
-  .nav a {
-    font-size: 15px;
-    padding: 4px 6px;
-    white-space: nowrap;
-  }
-
-  .nav > a:first-child {
-    margin-right: 12px;
-  }
-
-  .about-container {
-    padding: 80px 32px 40px 32px;
-  }
-
-  .about-container h1 {
-    white-space: nowrap; /* forces single line */
-    font-size: 28px;
-    text-align: center;
-  }
-
-  .step-number {
-    font-size: 60px;
-    min-width: 50px;
-  }
-
-  .step-text {
-    font-size: 16px;
-  }
-
-  .step {
-    gap: 16px;
-  }
-
-  .steps {
-    gap: 24px;
-  }
-
-  .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
+.nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2vh 2.5vw;
+  width: 100%;
+  box-sizing: border-box;
+  background: white;
 }
 
+.navlinks {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: clamp(4px, 1.5vw, 24px);
+  margin-left: auto;
+}
+
+.nav a {
+  font-size: clamp(16px, 2vw, 28px);
+  padding: clamp(2px, 0.5vh, 8px) clamp(4px, 0.8vw, 16px);
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .nav a {
+    font-size: 14px;
+    padding: 2px 4px;
+  }
+  .navlinks {
+    gap: 4px;
+  }
+}

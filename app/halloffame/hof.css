@@ -7,205 +7,114 @@
   background-image: url('/background.png');
   background-size: cover;
   background-position: center;
-  opacity: 0.10; /* Just the image, not content */
+  opacity: 0.10;
   z-index: -1;
 }
 
 .header {
-  font-size: 100px;
-  margin-top: 50px;;
+  font-size: clamp(60px, 8vw, 100px);
+  margin-top: 3vh;
 }
+
 .halloffame-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px;
+  padding: clamp(20px, 5vw, 40px);
 }
 
 .halloffame-container h1 {
-  font-size: 48px;
+  font-size: clamp(32px, 4vw, 48px);
   font-weight: 900;
-  margin-bottom: 40px;
+  margin-bottom: 4vh;
   color: black;
+  text-align: center;
 }
 
 .leaderboard {
   width: 100%;
   max-width: 600px;
+  margin: 0 auto;
 }
 
 .leaderboard-entry {
   display: grid;
-  grid-template-columns: 60px 1fr 120px 140px;
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: clamp(40px, 5vw, 60px) 1fr auto auto;
+  gap: clamp(8px, 1.5vw, 20px);
+  padding: clamp(10px, 1.5vh, 20px);
   align-items: center;
 }
 
 .rank {
-  font-size: 46px;
+  font-size: clamp(24px, 3.5vw, 46px);
   font-weight: 900;
   color: #0099ff;
   text-align: center;
 }
 
 .name {
-  font-size: 28px;
+  font-size: clamp(16px, 2vw, 28px);
   font-weight: 600;
-  margin-left: 30px;
+  margin-left: clamp(6px, 2vw, 30px);
 }
 
 .rounds {
-  font-size: 28px;
+  font-size: clamp(14px, 1.8vw, 28px);
   color: #666;
   text-align: right;
 }
 
 .time {
-  font-size: 20px;
+  font-size: clamp(12px, 1.4vw, 20px);
   color: #666;
   text-align: right;
 }
 
-@media (max-width: 1024px) {
-  .nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
-    padding: 16px 24px;
-  }
-
-  .navlinks {
-    position: static;
-    transform: none;
-    display: flex;
-    gap: 16px;
-  }
-
-  .nav a {
-    font-size: 22px;
-    padding: 6px 10px;
-  }
-
-  .header {
-    font-size: 60px;
-    margin-top: 20px;
-  }
-
-  .leaderboard-entry {
-    grid-template-columns: 50px 1fr 100px 100px;
-    gap: 12px;
-    padding: 14px;
-  }
-
-  .rank {
-    font-size: 32px;
-  }
-
-  .name {
-    font-size: 22px;
-    margin-left: 10px;
-  }
-
-  .rounds {
-    font-size: 20px;
-  }
-
-  .time {
-    font-size: 16px;
-  }
-
-  .halloffame-container {
-    padding: 40px 20px;
-    align-items: center;
-  }
-
-  .leaderboard {
-    width: auto;
-    margin: 0 auto;
-  }
+.text-content {
+  text-align: center;
+  font-size: clamp(32px, 5vw, 60px);
 }
 
+.nav {
+  display: flex;
+  align-items: center;
+  padding: 2vh 2.5vw;
+  width: 100%;
+  box-sizing: border-box;
+  background: white;
+}
 
-@media (max-width: 767px) {
-  .nav {
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: nowrap;
-    padding: 8px 12px;
-    gap: 0px;
-    overflow: hidden;
-  }
+.navlinks {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: clamp(4px, 1.5vw, 24px);
+  align-items: center;
+  margin-left: auto;
+}
 
-  .navlinks {
-    position: static;
-    transform: none;
-    flex-wrap: nowrap;
-    gap: 0px;
-  }
+.nav a {
+  font-size: clamp(16px, 2vw, 28px);
+  text-decoration: none;
+  padding: clamp(2px, 0.5vh, 8px) clamp(4px, 0.8vw, 16px);
+  white-space: nowrap;
+}
 
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1vh 2vw;
+  font-size: clamp(12px, 1.5vw, 16px);
+}
+
+@media (max-width: 480px) {
   .nav a {
-    font-size: 15px;
-    padding: 4px 6px;
-    white-space: nowrap;
-  }
-
-  .nav > a:first-child {
-    margin-right: 12px;
-  }
-
-  .halloffame-container {
-    padding: 80px 20px 40px 20px;
-    align-items: center;
-  }
-
-  .halloffame-container h1 {
-    font-size: 32px;
-    text-align: center;
-  }
-
-  .leaderboard {
-    width: auto;
-    margin: 0 auto;
-  }
-
-  .leaderboard-entry {
-    grid-template-columns: 40px 1fr 80px 80px;
-    gap: 8px;
-    padding: 10px;
-  }
-
-  .rank {
-    font-size: 24px;
-  }
-
-  .name {
-    font-size: 16px;
-    margin-left: 6px;
-  }
-
-  .rounds {
     font-size: 14px;
+    padding: 2px 4px;
   }
-
-  .time {
-    font-size: 12px;
-  }
-
-  .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
-}
-
-@media (max-width: 1024px) {
-  .text-content{
-    text-align: center;
-    font-size: 60px;
+  .navlinks {
+    gap: 4px;
   }
 }

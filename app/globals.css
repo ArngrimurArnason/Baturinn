@@ -15,11 +15,11 @@ html, body {
   display: none !important;
 }
 
-.footer{
+.footer {
   background: var(--background);
   color: var(--foreground);
   text-align: center;
-  padding: 20px;
+  padding: 2vh 2vw;
   margin-top: auto;
   border-top: 1px solid var(--color-blue);
 }
@@ -27,34 +27,40 @@ html, body {
 .nav {
   display: flex;
   align-items: center;
-  padding: 20px 40px;
+  padding: 2vh 2.5vw;
   background: white;
-  position: relative;
-}
-
-.nav > a:first-child {
-  /* "Baturinn" stays on left */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .navlinks {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
-  gap: 24px;
+  gap: clamp(4px, 1.5vw, 24px);
   align-items: center;
+  margin-left: auto;
 }
 
-.nav a{
-    color: black;
-    font-weight: 800;
-    font-size: 28px;
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    transition: background 0.2s;
+.nav a {
+  color: black;
+  font-weight: 800;
+  font-size: clamp(12px, 2vw, 28px);
+  text-decoration: none;
+  padding: clamp(2px, 0.5vh, 8px) clamp(4px, 0.8vw, 16px);
+  border-radius: 4px;
+  transition: background 0.2s;
+  white-space: nowrap;
 }
 
 .nav a:hover {
   color: #0099ff;
+}
+
+@media (max-width: 480px) {
+  .nav a {
+    font-size: 11px;
+    padding: 2px 4px;
+  }
+  .navlinks {
+    gap: 2px;
+  }
 }
