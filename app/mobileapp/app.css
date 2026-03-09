@@ -30,7 +30,7 @@
 
 .explanation-text {
   text-align: center;
-  margin: 2vh 2vw;
+  margin: 2vh 4vw;
   font-size: clamp(16px, 2vw, 24px);
   color: #666;
 }
