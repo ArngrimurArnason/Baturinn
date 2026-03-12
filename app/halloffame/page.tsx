@@ -18,7 +18,7 @@ export default function HallofFame() {
     .from('Leaderboard')
     .select('name, rounds, created_at')
     .order('rounds', { ascending: true })  // Best scores first 
-    .limit(5)
+    
 
   if (error) {
     console.error('Error fetching:', error)
