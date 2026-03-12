@@ -41,37 +41,58 @@ export default function Game() {
 
   // save player do database using state
   async function savePlayer(){
+  if (!playerName.trim()) {
+    setModalMessage("Sláðu inn nafn!");
+    setShowModal(true);
+    return;
+  }
 
-    if (!playerName.trim()) {
-      setModalMessage("Sláðu inn nafn!");
-      setShowModal(true);
-      return;
-    }
-
-    if (playerName.trim().length > 20) {
-      setModalMessage("Nafn má ekki vera lengra en 20 stafir");
-      setShowModal(true);
-      return;
-    }
-    
-    const { error } = await supabase
+  if (playerName.trim().length > 20) {
+    setModalMessage("Nafn má ekki vera lengra en 20 stafir");
+    setShowModal(true);
+    return;
+  }
+  
+  const { data: existing } = await supabase
     .from('Leaderboard')
-    .insert([
+    .select('rounds')
+    .eq('name', playerName)
+    .single()
+
+  console.log("Existing:", existing)
+  console.log("Current failedAttempts:", failedAttempts)
+
+  if (existing && failedAttempts >= existing.rounds) {
+    // Existing score is better, don't update
+    setShowNameInput(false);
+    setModalMessage("Fyrri einkunn þín er betri! 🏆");
+    setShowModal(true);
+    return;
+  }
+
+  // Only reaches here if no existing score, or new score is better
+  const { error } = await supabase
+    .from('Leaderboard')
+    .upsert([
       { 
         name: playerName,
         rounds: failedAttempts,
         created_at: new Date().toISOString()
       }
-    ])
-    if (error) {
-    } else {
-      setShowNameInput(false);
-      setPlayerName("");
-      setFailedAttempts(0);
-      setModalMessage("Skráning tókst! 🎉");
-      setShowModal(true);
-    }
+    ], { onConflict: 'name' })
+
+  if (error) {
+    setModalMessage("Villa við skráningu, reyndu aftur!");
+    setShowModal(true);
+  } else {
+    setShowNameInput(false);
+    setPlayerName("");
+    setFailedAttempts(0);
+    resetGame();
+    setModalMessage("Skráning tókst! 🎉");
+    setShowModal(true);
   }
+}
 
   function resetGame() {
     setFailedAttempts(0);
@@ -307,10 +328,10 @@ export default function Game() {
           <Card 
             rank={deck[0].rank} 
             suit={deck[0].suit} 
-            faceUp={false} 
+            faceUp={true} 
           />
         ) : (
-          <Card faceUp={false} />
+          <Card faceUp={true} />
         )}
       </div>
 
@@ -381,7 +402,7 @@ export default function Game() {
                 </div>
               </div>
             </div>
-          ) : modalMessage.includes("Kláraðu") ? (
+          ) : modalMessage.includes("betri") ||  modalMessage.includes("Kláraðu") ? (
             <div className="modal-overlay">
               <div className="modal">
                 <p>{modalMessage}</p>
